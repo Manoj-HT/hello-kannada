@@ -1,0 +1,45 @@
+<div class="text-box">
+  <textarea type="text" [formControl]="inputString" title="text-entry">
+        {{ inputString.value }}
+    </textarea
+  >
+  <div class="action btn-grp">
+    <button class="action-btn" type="button" (click)="add()">Add</button>
+    <button class="action-btn" type="button" (click)="translate()">
+      Translate
+    </button>
+  </div>
+</div>
+
+<div class="keyboard">
+  <div class="vowels">
+    @for(letter of vowels(); track letter){
+    <button class="keyboard-btn" type="button" (click)="addVowel(letter)">
+      {{ letter }}
+    </button>
+    }
+  </div>
+  <div class="consonants">
+    @for(group of consonantGroup(); track $index){
+    <div class="consonant-group">
+      @for(letter of group; track letter){
+      <button class="keyboard-btn" type="button" (click)="addConsonant(letter)">
+        {{ letter }}
+      </button>
+      }
+    </div>
+    }
+  </div>
+  <div class="others">
+    @for(letter of others(); track letter){
+    <button class="keyboard-btn" type="button" (click)="addConsonant(letter)">
+      {{ letter }}
+    </button>
+    }
+  </div>
+  <div class="keyboard btn-grp">
+    <button class="action-btn" type="button" (click)="reset()">Reset</button>
+    <button class="action-btn" type="button" (click)="addSpace()">Space</button>
+    <button class="action-btn" type="button" (click)="clear()">Clear</button>
+  </div>
+</div>

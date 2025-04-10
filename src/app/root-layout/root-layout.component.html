@@ -1,0 +1,13 @@
+<div [className]="updateableIndex ? 'page overflow-hidden' : 'page'">
+  @for(chapter of chapters; track $index;){
+  <div
+    [className]="
+      updateableIndex == $index ? 'component open-animation' : 'component'
+    "
+    (click)="handleChapterClick($index, $event)"
+    [style]="getCssValue($index, chapter)"
+  >
+    <img [src]="getImagesvgString(chapter.icon)" alt="">
+  </div>
+  }
+</div>

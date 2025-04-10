@@ -1,0 +1,64 @@
+:host{
+  --keyboard-theme: pink;
+}
+
+textarea {
+  border: 2px solid var(--keyboard-theme);
+  border-radius: 1rem;
+  width: 80%;
+  padding: 0.5rem;
+}
+
+.text-box {
+  display: flex;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.btn-grp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.action.btn-grp {
+  flex-direction: column;
+  button {
+      width: 100%;
+  }
+}
+
+.keyboard.btn-grp {
+  padding: 0.5rem;
+}
+
+.vowels,
+.consonant-group,
+.others {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.keyboard-btn,
+.action-btn {
+  border-radius: 1rem;
+  background-color: var(--keyboard-theme);
+  border: none;
+  padding: 0.5rem;
+  color: black;
+}
+
+.keyboard-btn {
+  width: 2.5rem;
+  &:active {
+      scale: 1.05;
+      background-color: black;
+      color: white;
+  }
+}
+

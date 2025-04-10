@@ -1,59 +1,41 @@
-# HelloKannada
+# 📘 Hello Kannada – A Progressive Web App for Everyone
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+**Hello Kannada** is an open-source, mobile-first web app designed to help non-Kannada speakers learn Kannada through English. Built with ❤️ in Angular, this app is optimized for offline use, respects user privacy, and requires **no sign-in**. All user data is stored locally on their device, making it a safe, fast, and convenient experience.
 
-## Development server
+## 🌟 Why This Exists
 
-To start a local development server, run:
+This project is born out of good will. Kannada is a beautiful language spoken by millions, but many who live or travel in Karnataka struggle to pick it up due to a lack of accessible, simple, and friendly learning tools. This app aims to change that – **by making Kannada learning easy, free, and open to everyone.**
 
+Whether you're a student, a migrant worker, a tourist, or just curious – this is for you.
+
+## 🚀 Features
+
+- ✅ **No Sign-In Required** – Zero friction. Privacy-respecting.
+- 📲 **PWA-Ready** – Install it or use it straight from the browser.
+- 📱 **Mobile-First Design** – Built to feel native on smartphones.
+- 📤 **Offline-First** – Works seamlessly even without internet.
+- 📚 **English-to-Kannada Learning** – Simple, bite-sized lessons.
+- 💾 **Local Storage** – Your progress stays on your device.
+- 🤝 **Open Source** – Contributions welcome!
+
+## 🧠 Tech Stack
+
+- **Frontend**: Angular
+- **Design**: Mobile-first, responsive
+- **PWA**: Service workers + manifest for installability and offline
+- **Storage**: LocalStorage / IndexedDB (privacy-friendly, no backend)
+
+## Where to access
+Project under development phase. 
+```
+https://hello-kannada.web.app
+```
+## For devs
+
+Clone the repo and run it locally:
 ```bash
+git clone https://github.com/Manoj-HT/hello-kannada.git
+cd hello-kannada
+npm install
 ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

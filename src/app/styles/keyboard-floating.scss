@@ -1,0 +1,60 @@
+
+.keyboard-component{
+    padding: 2rem 1rem;
+    border-radius: 2rem 2rem 0 0;
+    position: fixed;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+    height: calc(100% - 10vh);
+    overflow: auto;
+    @media screen and (min-width: 769px) {
+        right: 27%;
+        translate: 50% 0;
+    }
+}
+
+.keyboard-closed{
+    top: 82%;
+    animation: closeKeyboard 0.3s ease-out;
+    @keyframes closeKeyboard {
+        from{
+            top: 10vh;
+        }
+        to{
+            top: 82%;
+        }
+    }
+}
+
+.keyboard-open{
+    top: 10vh;
+    animation: openKeyboard 0.3s ease-out;
+    @keyframes openKeyboard {
+        from{
+            top: 82%;
+        }
+        to{
+            top: 10vh;
+        }
+    }
+}
+
+
+.keyboard-action-btn{
+    position: absolute;
+    top: 1%;
+    right: 50%;
+    background-color: transparent;
+    border: none;
+    translate: 50% 0;
+    cursor: pointer;
+}
+
+.keyboard-action-btn-chevron-closed{
+    filter:brightness(0);
+    rotate: 90deg;
+}
+
+.keyboard-action-btn-chevron-open{
+    filter:brightness(0);
+    rotate: -90deg;
+}

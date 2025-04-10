@@ -1,0 +1,48 @@
+.chapter-page{
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.close-animation{
+    animation: closeAnimation 0.3s;
+    @keyframes closeAnimation {
+        from{
+            opacity: 1;
+        }
+        to{
+            opacity: 0;
+        }
+    }
+}
+
+.go-back-btn{
+    background-color: transparent;
+    border: none;
+}
+
+.chapter-content{
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.topic{
+    background-color: white;
+    animation: entry 1s ease-out;
+    aspect-ratio: 1/1;
+    width: 6rem;
+    border-radius: 50%;
+}
+
+@keyframes entry {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
