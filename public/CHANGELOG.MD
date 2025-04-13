@@ -1,3 +1,7 @@
+# 1.0.2
+
+1. added bun support
+
 # 1.0.1
 
 1. adding models for book, chapter and topics
