@@ -1,5 +1,11 @@
 # 1.0.2
 
+1. added model for interactive topic
+2. updated app description
+3. added topic-interactive model
+
+# 1.0.2
+
 1. added bun support
 
 # 1.0.1
