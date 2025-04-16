@@ -4,5 +4,5 @@
 
 <div [className]="keyBoardService.keyboardClass()">
     <button title="open keyboard" type="button" class="keyboard-action-btn"  (click)="keyBoardService.openKeyBoard()" ><img [className]="keyBoardService.chevronBtn()" src="chevron_left.svg" alt=""></button>
-    <keyboard [chapterId]="chapterId()" (word)="addWord($event)" />
+    <kannada-keyboard [chapterId]="chapterId()" (word)="addWord($event)" />
 </div>

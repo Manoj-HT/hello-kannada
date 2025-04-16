@@ -2,7 +2,7 @@ import { Component, ElementRef, inject, input, output, Renderer2, signal } from 
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ChapterDetailsService } from '../services/chapters/chapter-details.service';
 @Component({
-  selector: 'keyboard',
+  selector: 'kannada-keyboard',
   imports: [ReactiveFormsModule],
   templateUrl: './keyboard.component.html',
   styleUrl: './keyboard.component.scss',

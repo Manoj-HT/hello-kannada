@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
-import { RootLayoutComponent } from './root-layout/root-layout.component';
 import { ChapterComponent } from './chapter/chapter.component';
-import { TopicComponent } from './topic/topic.component';
+import { InteractiveComponent } from './topic/interactive/interactive.component';
+import { MaterialComponent } from './topic/material/material.component';
+import { BookComponent } from './book/book.component';
 
 export const routes: Routes = [
     {
         path: 'book',
-        component: RootLayoutComponent
+        component: BookComponent
     },
     {
         path: 'chapter/:id',
@@ -17,8 +18,12 @@ export const routes: Routes = [
         children: [
             {
                 path: 'topic/:topicId',
-                component: TopicComponent
-            }
+                component: InteractiveComponent
+            },
+            {
+                path: 'topic/:topicId',
+                component: MaterialComponent
+            },
         ]
     },
     {
