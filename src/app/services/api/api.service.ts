@@ -6,9 +6,18 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  http = inject(HttpClient)
+  http = inject(HttpClient);
 
-  getAppVersion(): Observable<string>{
-    return this.http.get("").pipe(map( (result) => ""))
+  api = {
+    changelog: '/CHANGELOG.MD',
+    appConfig: 'https://cdn.jsdelivr.net/gh/Manoj-HT/kannada-teacher@main/public/app-meta/app-config.json'
+  }
+
+  getAppConfig(): Observable<AppConfig>{
+    return this.http.get<AppConfig>(this.api.appConfig)
+  }
+
+  getChangeLog(): Observable<string>{
+    return this.http.get(this.api.changelog, {responseType: 'text'})
   }
 }

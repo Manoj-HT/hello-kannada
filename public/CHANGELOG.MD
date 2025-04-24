@@ -1,3 +1,10 @@
+# 1.0.5
+
+1. partial update logic added
+2. jsDelivr cdn obtained
+3. apis added
+4. app config type updated
+
 # 1.0.4
 
 1. added specific components for interactive and material type

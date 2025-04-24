@@ -17,4 +17,10 @@ type AppConfig = {
     appVersion: string;
     contentVersion: string;
     lastUpdatedOn: number;
+    notificationMessage: string;
+}
+
+type ChangeLog = {
+    version: string;
+    changes: string[];
 }
