@@ -1,3 +1,8 @@
+# 1.0.6
+
+1. partially added check for next day to check app updates
+2. localstorage key for last updated added
+
 # 1.0.5
 
 1. partial update logic added

@@ -1,7 +1,8 @@
 enum CONSTANTS {
     localStorageProgressKey = 'progress',
     localStorageAppCofigKey = 'appConfig',
-    localStorageAppUpdated = 'appUpdated'
+    localStorageAppUpdated = 'appUpdated',
+    localStorageLastUpdatedOn = 'lastUpdatedon'
 }
 
 export default CONSTANTS

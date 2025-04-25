@@ -31,11 +31,21 @@ export class BookComponent {
 
   ngOnInit() {
     if (!isPlatformBrowser(this.platformId)) return;
-    this.loadAppConfig();
+    if(this.checkNextDay()){
+      this.loadAppConfig();
+    }
     this.loadUserData();
     this.checkAppUpdated()
   }
 
+  checkNextDay(): boolean{
+    const currentDateTimeStamp = localStorage.getItem(CONSTANTS.localStorageLastUpdatedOn)
+    if(!currentDateTimeStamp){
+      return true;
+    }
+    
+    return false;
+  }
 
   loadAppConfig() {
     this.api.getAppConfig().subscribe({
