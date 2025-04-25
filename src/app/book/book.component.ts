@@ -31,20 +31,18 @@ export class BookComponent {
 
   ngOnInit() {
     if (!isPlatformBrowser(this.platformId)) return;
-    if(this.checkNextDay()){
+    if (this.checkNextDay()) {
       this.loadAppConfig();
     }
     this.loadUserData();
-    this.checkAppUpdated()
+    this.checkAppUpdated();
   }
 
-  checkNextDay(): boolean{
-    const currentDateTimeStamp = localStorage.getItem(CONSTANTS.localStorageLastUpdatedOn)
-    if(!currentDateTimeStamp){
-      return true;
-    }
-    
-    return false;
+  checkNextDay(): boolean {
+    const lastUpdatedOnString = localStorage.getItem(CONSTANTS.localStorageLastUpdatedOn)
+    if (!lastUpdatedOnString) return true;
+    const lastUpdatedOn = new Date(Number(lastUpdatedOnString))
+    return lastUpdatedOn.toDateString() !== new Date().toDateString();
   }
 
   loadAppConfig() {
@@ -67,6 +65,7 @@ export class BookComponent {
       CONSTANTS.localStorageAppCofigKey,
       JSON.stringify(appConfig)
     );
+    localStorage.setItem(CONSTANTS.localStorageLastUpdatedOn, String(Date.now()))
   }
 
   updateApp(res: AppConfig) {
@@ -75,10 +74,10 @@ export class BookComponent {
     );
     const appConfig = JSON.parse(appConfigString as string) as AppConfig;
     const isNewApp =
-      this.compareVersions(res.appVersion, appConfig.appVersion) === 1;
+      this.compareVersions(res.appVersion, appConfig.appVersion);
     const isNewContent =
       this.compareVersions(res.contentVersion, appConfig.contentVersion) === 1;
-    if (isNewApp) {
+    if (isNewApp === 1) {
       this.isAppUpdated.update((res) => {
         return {
           isReleased: true,
@@ -86,11 +85,9 @@ export class BookComponent {
           changeLog: []
         }
       })
-      localStorage.setItem(CONSTANTS.localStorageAppUpdated, String(true))
+    } else if (isNewApp == 0) {
       localStorage.setItem(CONSTANTS.localStorageAppCofigKey, JSON.stringify(res))
     }
-
-    // TODO: update `localStorage`
     // TODO: read and display notification for content update
   }
 
@@ -104,13 +101,18 @@ export class BookComponent {
             isUpdated: appUpdated === 'true',
             changeLog: this.parseChangelog(res)
           }))
-          localStorage.removeItem(CONSTANTS.localStorageAppUpdated)
+          localStorage.setItem(CONSTANTS.localStorageLastUpdatedOn, String(Date.now()))
         },
       });
     }
   }
 
+  closeChangeLog() {
+    localStorage.removeItem(CONSTANTS.localStorageAppUpdated)
+  }
+
   reloadApp() {
+    localStorage.setItem(CONSTANTS.localStorageAppUpdated, String(true))
     location.reload()
   }
 
@@ -138,7 +140,6 @@ export class BookComponent {
     const aParts = a.split('.').map(Number);
     const bParts = b.split('.').map(Number);
     const length = Math.max(aParts.length, bParts.length);
-
     for (let i = 0; i < length; i++) {
       const aNum = aParts[i] || 0;
       const bNum = bParts[i] || 0;

@@ -1,3 +1,7 @@
+# 1.0.7
+
+1. offloading app update to a seperate service
+
 # 1.0.6
 
 1. partially added check for next day to check app updates
