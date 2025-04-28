@@ -37,6 +37,10 @@ export class AppUpdateService {
           }))
           localStorage.setItem(CONSTANTS.localStorageLastUpdatedOn, String(Date.now()))
         },
+        error: (err: Error) => {
+          err.message = "Could not obtain changelog"
+          console.error(err)
+        }
       });
     }
   }
@@ -89,6 +93,10 @@ export class AppUpdateService {
           this.updateApp(res);
         }
       },
+      error: (err: Error) => {
+        err.message = "Could not recieve config"
+        console.error(err)
+      }
     });
   }
 
@@ -100,15 +108,15 @@ export class AppUpdateService {
     localStorage.setItem(CONSTANTS.localStorageLastUpdatedOn, String(Date.now()))
   }
 
-  private updateApp(res: AppConfig) {
+  private updateApp(newConfig: AppConfig) {
     const appConfigString = localStorage.getItem(
       CONSTANTS.localStorageAppCofigKey
     );
     const appConfig = JSON.parse(appConfigString as string) as AppConfig;
     const isNewApp =
-      this.compareVersions(res.appVersion, appConfig.appVersion);
+      this.compareVersions(newConfig.appVersion, appConfig.appVersion);
     const isNewContent =
-      this.compareVersions(res.contentVersion, appConfig.contentVersion) === 1;
+      this.compareVersions(newConfig.contentVersion, appConfig.contentVersion) === 1;
     if (isNewApp === 1) {
       this.isAppUpdated.update((res) => {
         return {
@@ -118,7 +126,7 @@ export class AppUpdateService {
         }
       })
     } else if (isNewApp == 0) {
-      localStorage.setItem(CONSTANTS.localStorageAppCofigKey, JSON.stringify(res))
+      localStorage.setItem(CONSTANTS.localStorageAppCofigKey, JSON.stringify(newConfig))
     }
     // TODO: read and display notification for content update
   }

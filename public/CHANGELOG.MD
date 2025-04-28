@@ -1,3 +1,9 @@
+# 1.0.8
+
+1. errors handling
+2. nomenclature updated
+3. workspace for code added
+
 # 1.0.7
 
 1. offloading app update to a seperate service
