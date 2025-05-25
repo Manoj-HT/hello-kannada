@@ -1,3 +1,7 @@
+# 1.0.10
+
+1. code-workspace file deleted
+
 # 1.0.9
 
 1. added documentation for update service
