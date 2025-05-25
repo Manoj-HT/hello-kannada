@@ -1,3 +1,12 @@
+# 1.0.9
+
+1. added documentation for update service
+2. implemented counter feature for update 
+3. Text to display development condition written in app root
+4. worksoace launch json added
+5. removed isAppUpdated signal in book component
+6. added `isCritical` feature to update forcefully if true
+
 # 1.0.8
 
 1. errors handling

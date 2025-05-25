@@ -18,6 +18,7 @@ type AppConfig = {
     contentVersion: string;
     lastUpdatedOn: number;
     notificationMessage: string;
+    isCritical: boolean;
 }
 
 type ChangeLog = {

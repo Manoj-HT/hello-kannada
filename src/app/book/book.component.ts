@@ -21,15 +21,6 @@ export class BookComponent {
   platformId = inject(PLATFORM_ID)
   api = inject(ApiService);
   updateService = inject(AppUpdateService)
-  isAppUpdated = signal<{
-    isReleased: boolean;
-    isUpdated: boolean;
-    changeLog: ChangeLog[]
-  }>({
-    isReleased: false,
-    isUpdated: false,
-    changeLog: []
-  })
 
   ngOnInit() {
     if (!isPlatformBrowser(this.platformId)) return;
