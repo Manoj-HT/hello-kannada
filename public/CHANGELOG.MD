@@ -1,3 +1,7 @@
+# 0.0.3
+
+1. updated to angular v20
+
 # 0.0.2
 
 1. Uncommented router-outlet to use locally
