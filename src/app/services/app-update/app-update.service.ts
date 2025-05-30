@@ -1,6 +1,7 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal, effect, computed } from '@angular/core';
 import CONSTANTS from '../../global/variables/constants';
 import { ApiService } from '../api/api.service';
+import { UserDataService } from '../user-data/user-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { ApiService } from '../api/api.service';
 export class AppUpdateService {
 
   private api = inject(ApiService);
+  private userData = inject(UserDataService)
 
   /**
    * Signal to hold value of update

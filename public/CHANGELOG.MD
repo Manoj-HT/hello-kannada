@@ -1,3 +1,18 @@
+# 0.0.2
+
+1. Uncommented router-outlet to use locally
+2. created userdata service
+3. changed user model
+
+# 0.0.1
+
+1. CI/CD setup temporarily stopped
+
+# 0.0.0
+
+1. App version reset
+2. Automatic deployment temporarily stopped
+
 # 1.0.10
 
 1. code-workspace file deleted

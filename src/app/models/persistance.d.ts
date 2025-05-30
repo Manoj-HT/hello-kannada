@@ -1,16 +1,8 @@
-type TopicStatus = {
-    completed: boolean;
-    lastAttemptAt?: number;
-    firstAttemptAt?: number;
-    // confidence: 'low' | 'medium' | 'high'
-    // attempts: number;
-};
-
 type UserData = {
-    progress: {
-        [topicId: string]: TopicStatus;
-    };
-    syncLink: string;
+   lastCompletedChapter: string;
+   skippedChapters: string[];
+   syncLink?: string;
+   updatedAt: number;
 };
 
 type AppConfig = {

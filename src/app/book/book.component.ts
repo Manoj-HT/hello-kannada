@@ -1,10 +1,11 @@
-import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
+import { Component, computed, effect, inject, PLATFORM_ID, signal } from '@angular/core';
 import { ChapterDetailsService } from '../services/chapters/chapter-details.service';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import CONSTANTS from '../global/variables/constants';
 import { ApiService } from '../services/api/api.service';
 import { AppUpdateService } from '../services/app-update/app-update.service';
+import { UserDataService } from '../services/user-data/user-data.service';
 
 @Component({
   selector: 'book',
@@ -21,32 +22,13 @@ export class BookComponent {
   platformId = inject(PLATFORM_ID)
   api = inject(ApiService);
   updateService = inject(AppUpdateService)
+  userDataservice = inject(UserDataService)
 
   ngOnInit() {
     if (!isPlatformBrowser(this.platformId)) return;
     this.updateService.init();
-    this.loadUserData();
   }
 
-  loadUserData() {
-    const localStorageUserData = localStorage.getItem(CONSTANTS.localStorageProgressKey)
-    let userData: UserData;
-    if (localStorageUserData) {
-      userData = JSON.parse(localStorage.getItem(CONSTANTS.localStorageProgressKey) as string)
-    } else {
-      userData = {
-        progress: {
-          "b1:c1:t1": {
-            completed: false,
-            lastAttemptAt: Date.now(),
-            firstAttemptAt: Date.now(),
-          }
-        },
-        syncLink: "",
-      }
-      localStorage.setItem(CONSTANTS.localStorageProgressKey, JSON.stringify(userData))
-    }
-  }
 
   handleChapterClick(index: number, event: Event) {
     this.updateableIndex = index
