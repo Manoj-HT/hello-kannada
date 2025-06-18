@@ -7,32 +7,34 @@ import CONSTANTS from '../../global/variables/constants';
 export class UserDataService {
 
   userData = signal<UserData>({
-       lastCompletedChapter: '',
-       skippedChapters: [],
-        syncLink: "",
-        updatedAt: Date.now()
-      })
+    lastCompletedChapter: '',
+    skippedChapters: [],
+    syncLink: "",
+    updatedAt: Date.now()
+  });
 
   /**
    * Initiate loading user data from local storage
    */
-  load(){
+  load() {
 
   }
 
   private loadUserData() {
-    const localStorageUserData = localStorage.getItem(CONSTANTS.localStorageProgressKey)
+    const localStorageUserData = localStorage.getItem(CONSTANTS.localStorageProgressKey);
     let userData: UserData;
     if (localStorageUserData) {
-      userData = JSON.parse(localStorageUserData)
+      userData = JSON.parse(localStorageUserData);
+      this.userData.update(() => userData)
     } else {
       userData = {
-       lastCompletedChapter: '',
-       skippedChapters: [],
+        lastCompletedChapter: "",
+        skippedChapters: [],
         syncLink: "",
         updatedAt: Date.now()
-      }
-      localStorage.setItem(CONSTANTS.localStorageProgressKey, JSON.stringify(userData))
+      };
+      localStorage.setItem(CONSTANTS.localStorageProgressKey, JSON.stringify(userData));
+      this.userData.update(() => userData)
     }
   }
 

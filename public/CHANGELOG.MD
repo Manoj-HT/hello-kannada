@@ -1,3 +1,8 @@
+# 0.0.4
+
+1. added docs folder to keep track of features
+2. prettify user data service
+
 # 0.0.3
 
 1. updated to angular v20
