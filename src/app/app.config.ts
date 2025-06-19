@@ -1,8 +1,6 @@
 import {
   ApplicationConfig,
-  provideZoneChangeDetection,
   isDevMode,
-  provideZonelessChangeDetection,
 } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 
@@ -17,7 +15,6 @@ export const appConfig: ApplicationConfig = {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',
     }),
-    provideHttpClient(),
-    provideZonelessChangeDetection()
+    provideHttpClient(), 
   ],
 };

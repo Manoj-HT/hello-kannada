@@ -1,3 +1,7 @@
+# 0.0.5
+
+1. added methods for user data updation
+
 # 0.0.4
 
 1. added docs folder to keep track of features
